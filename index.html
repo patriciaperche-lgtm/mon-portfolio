@@ -1,0 +1,628 @@
+<title>Patricia Perche</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #F0EFEB;
+    --surface: #FAF8F3;
+    --surface-2: #E7E3D9;
+    --ink: #2C3944;
+    --ink-soft: #5B6B76;
+    --primary: #4A6275;
+    --primary-deep: #38495A;
+    --accent: #7FA98C;
+    --accent-deep: #5C8A6E;
+    --gold: #C9BE7C;
+    --border: rgba(44, 57, 68, 0.12);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #202A31;
+      --surface: #263139;
+      --surface-2: #2E3A42;
+      --ink: #EDEBE3;
+      --ink-soft: #B6C0C6;
+      --primary: #A9C2D2;
+      --primary-deep: #C7D9E3;
+      --accent: #9FC7AA;
+      --accent-deep: #B7D9BF;
+      --gold: #D6CE95;
+      --border: rgba(237, 235, 227, 0.14);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #202A31;
+    --surface: #263139;
+    --surface-2: #2E3A42;
+    --ink: #EDEBE3;
+    --ink-soft: #B6C0C6;
+    --primary: #A9C2D2;
+    --primary-deep: #C7D9E3;
+    --accent: #9FC7AA;
+    --accent-deep: #B7D9BF;
+    --gold: #D6CE95;
+    --border: rgba(237, 235, 227, 0.14);
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, .display {
+    font-family: "Fraunces", Georgia, "Times New Roman", serif;
+    font-weight: 500;
+    line-height: 1.08;
+    text-wrap: balance;
+    margin: 0;
+    color: var(--ink);
+  }
+  p { margin: 0; }
+  a { color: inherit; }
+  img { max-width: 100%; }
+
+  .wrap {
+    max-width: 880px;
+    margin: 0 auto;
+    padding-inline: 24px;
+  }
+
+  /* Header / nav */
+  header.site {
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+    z-index: 20;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 16px;
+    gap: 16px;
+  }
+  .brand {
+    font-family: "Fraunces", serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+  nav.links {
+    display: flex;
+    gap: 28px;
+    font-size: 0.92rem;
+  }
+  nav.links a {
+    text-decoration: none;
+    color: var(--ink-soft);
+  }
+  nav.links a:hover, nav.links a:focus-visible { color: var(--ink); }
+
+  /* Hero */
+  .hero {
+    padding-block: 72px 56px;
+  }
+  .eyebrow {
+    display: inline-block;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-deep);
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-size: clamp(2.1rem, 5vw, 3.3rem);
+    max-width: 14ch;
+  }
+  .hero .lede {
+    margin-top: 22px;
+    font-size: 1.15rem;
+    color: var(--ink-soft);
+    max-width: 46ch;
+    line-height: 1.55;
+  }
+  .hero .punch {
+    margin-top: 28px;
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-size: 1.3rem;
+    color: var(--primary-deep);
+    max-width: 32ch;
+    line-height: 1.4;
+    border-left: 3px solid var(--gold);
+    padding-left: 18px;
+  }
+  .cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 36px;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 24px;
+    border-radius: 999px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: transform 0.15s ease, background 0.15s ease;
+  }
+  .btn-primary {
+    background: var(--primary);
+    color: var(--surface);
+  }
+  .btn-primary:hover { background: var(--primary-deep); }
+  .btn-ghost {
+    border-color: var(--border);
+    color: var(--ink);
+  }
+  .btn-ghost:hover { background: var(--surface-2); }
+
+  /* Section scaffolding */
+  section { padding-block: 56px; }
+  .section-head { margin-bottom: 36px; max-width: 56ch; }
+  .kicker {
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-deep);
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: block;
+  }
+  .section-head h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); }
+  .section-head p {
+    margin-top: 14px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    font-size: 1.02rem;
+  }
+
+  /* About */
+  .about-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 32px;
+    align-items: start;
+  }
+  .about-figure {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background: linear-gradient(155deg, var(--accent) 0%, var(--primary) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Fraunces", serif;
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--surface);
+    flex-shrink: 0;
+  }
+  .about-body p { line-height: 1.7; color: var(--ink-soft); }
+  .about-body p + p { margin-top: 14px; }
+  .about-body strong { color: var(--ink); font-weight: 600; }
+
+  .pillars {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .pillar {
+    padding: 18px 4px 0;
+    border-top: 2px solid var(--gold);
+  }
+  .pillar h3 {
+    font-family: "Work Sans", sans-serif;
+    font-weight: 700;
+    font-size: 0.98rem;
+    margin-bottom: 6px;
+  }
+  .pillar p { font-size: 0.88rem; color: var(--ink-soft); line-height: 1.5; }
+
+  /* Timeline */
+  .timeline {
+    position: relative;
+    padding-left: 28px;
+    border-left: 2px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  .tl-item { position: relative; }
+  .tl-item::before {
+    content: "";
+    position: absolute;
+    left: -34px;
+    top: 4px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--bg);
+    box-shadow: 0 0 0 2px var(--accent);
+  }
+  .tl-item.current::before { background: var(--gold); box-shadow: 0 0 0 2px var(--gold); }
+  .tl-dates {
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent-deep);
+    font-weight: 600;
+  }
+  .tl-item h3 { font-size: 1.08rem; font-weight: 500; margin-top: 4px; }
+  .tl-item .tl-org { font-size: 0.9rem; color: var(--ink-soft); font-weight: 600; margin-top: 2px; }
+  .tl-item p.tl-desc { margin-top: 8px; color: var(--ink-soft); font-size: 0.92rem; line-height: 1.55; max-width: 58ch; }
+
+  /* Services */
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .service-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .service-num {
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--accent-deep);
+  }
+  .service-card h3 { font-size: 1.12rem; font-weight: 500; }
+  .service-card p { color: var(--ink-soft); font-size: 0.94rem; line-height: 1.55; }
+
+  /* Why */
+  .why-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .why-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .why-check {
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: var(--surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    margin-top: 2px;
+  }
+  .why-item h3 { font-size: 1.02rem; font-weight: 600; margin-bottom: 4px; }
+  .why-item p { color: var(--ink-soft); font-size: 0.95rem; line-height: 1.55; }
+
+  /* Testimonials */
+  .quotes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  .quote-card {
+    background: var(--surface-2);
+    border-radius: 14px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .quote-mark {
+    font-family: "Fraunces", serif;
+    font-size: 2.2rem;
+    color: var(--gold);
+    line-height: 0.6;
+  }
+  .quote-card p.text {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: var(--ink);
+  }
+  .quote-author {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    font-weight: 600;
+  }
+
+  /* Contact */
+  .contact-panel {
+    background: var(--primary);
+    color: var(--surface);
+    border-radius: 20px;
+    padding: 44px 36px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .contact-panel h2 { color: var(--surface); font-size: clamp(1.5rem, 3vw, 2rem); }
+  .contact-panel p { color: color-mix(in srgb, var(--surface) 82%, transparent); margin-top: 10px; max-width: 40ch; line-height: 1.55; }
+  .contact-actions { display: flex; flex-direction: column; gap: 10px; }
+  .contact-actions a {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .contact-actions .btn-primary { background: var(--surface); color: var(--primary-deep); }
+  .contact-actions .btn-primary:hover { background: var(--gold); }
+  .contact-actions .link-line { color: color-mix(in srgb, var(--surface) 90%, transparent); }
+  .contact-actions .link-line:hover { color: var(--gold); }
+
+  footer.site {
+    padding-block: 32px 48px;
+    text-align: center;
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+  }
+
+  @media (max-width: 680px) {
+    nav.links { display: none; }
+    .about-grid { grid-template-columns: 1fr; }
+    .pillars { grid-template-columns: 1fr 1fr; }
+    .services-grid { grid-template-columns: 1fr; }
+    .quotes { grid-template-columns: 1fr; }
+    .contact-panel { padding: 32px 22px; }
+    .hero .punch { font-size: 1.12rem; }
+  }
+</style>
+
+<header class="site">
+  <div class="wrap nav-row">
+    <span class="brand">Patricia Perche</span>
+    <nav class="links">
+      <a href="#about">À propos</a>
+      <a href="#parcours">Parcours</a>
+      <a href="#services">Accompagnement</a>
+      <a href="#avis">Avis</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <span class="eyebrow">Experte marketing &amp; IA pour TPE / PME</span>
+      <h1>Clarifier votre offre.<br>Renforcer votre positionnement.</h1>
+      <p class="lede">
+        Depuis plus de 20 ans, j'aide les dirigeants de TPE et PME à structurer leur discours marketing
+        et à défendre la vraie valeur de ce qu'ils vendent — sans jargon, avec des livrables concrets.
+      </p>
+      <p class="punch">
+        « Vos prospects arrêtent de négocier<br>quand votre valeur devient évidente. »
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://calendly.com/patriciaperche/echange" target="_blank" rel="noopener">Prendre rendez-vous</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/patricia-perche/" target="_blank" rel="noopener">Voir mon LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="about-grid">
+        <div class="about-figure">PP</div>
+        <div class="about-body">
+          <p>
+            Basée à Nanterre, j'accompagne des dirigeants de TPE et PME à Paris et partout en France,
+            en présentiel comme à distance. Je fais aussi partie du réseau des <strong>Activateurs France Num</strong>
+            pour aider les petites entreprises à réussir leur transition numérique.
+          </p>
+          <p>
+            Ma conviction : chaque dirigeant mérite de faire entendre sa voix avec authenticité.
+            Derrière chaque petite entreprise se cache une histoire unique, souvent sous-exploitée.
+            Ma mission est de <strong>clarifier vos offres, poser un positionnement fort,
+            et reconnecter vos clients à votre entreprise</strong>.
+          </p>
+        </div>
+      </div>
+
+      <div class="pillars">
+        <div class="pillar">
+          <h3>Clarté</h3>
+          <p>Je vulgarise les messages marketing que vous souhaitez diffuser.</p>
+        </div>
+        <div class="pillar">
+          <h3>Écoute</h3>
+          <p>Je m'adapte à vos besoins concrets, sans jargon ni recettes toutes faites.</p>
+        </div>
+        <div class="pillar">
+          <h3>Opérationnelle</h3>
+          <p>Chaque accompagnement débouche sur des livrables actionnables et durables.</p>
+        </div>
+        <div class="pillar">
+          <h3>Engagement</h3>
+          <p>Je deviens votre binôme marketing stratégique, pas seulement une prestataire.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="parcours">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Parcours</span>
+        <h2>25 ans de marketing, côté grand groupe et côté terrain</h2>
+        <p>Du marketing produit chez ADP à l'accompagnement indépendant des dirigeants de TPE/PME.</p>
+      </div>
+      <div class="timeline">
+        <div class="tl-item current">
+          <span class="tl-dates">Depuis 2019</span>
+          <h3>Experte marketing indépendante</h3>
+          <div class="tl-org">Patricia Perche Conseils Marketing · Freelance</div>
+          <p class="tl-desc">Accompagnement des dirigeants de TPE/PME BtoB : études de marché, structuration des offres, formalisation de la proposition de valeur, positionnement.</p>
+        </div>
+        <div class="tl-item current">
+          <span class="tl-dates">Depuis 2022</span>
+          <h3>Mentor — Formations Intelligence artificielle &amp; Marketing digital</h3>
+          <div class="tl-org">LiveMentor · Freelance</div>
+          <p class="tl-desc">Accompagnement d'entrepreneurs et de personnes en reconversion : product/market fit, stratégie de visibilité, usage de l'IA pour gagner en efficacité.</p>
+        </div>
+        <div class="tl-item current">
+          <span class="tl-dates">Depuis 2023</span>
+          <h3>Chargée d'enseignement — Marketing stratégique &amp; LinkedIn</h3>
+          <div class="tl-org">ECITV · Freelance</div>
+          <p class="tl-desc">Intervention auprès des étudiants de 3ᵉ et 5ᵉ année : plan marketing digital, stratégie SEO, prise de parole sur LinkedIn.</p>
+        </div>
+        <div class="tl-item">
+          <span class="tl-dates">2021 – 2023</span>
+          <h3>Consultante numérique</h3>
+          <div class="tl-org">KIWEEN</div>
+          <p class="tl-desc">Accompagnement des dirigeants sur la conception de leur site et leur plan de communication digitale, vente de solutions digitales pour entreprises locales.</p>
+        </div>
+        <div class="tl-item">
+          <span class="tl-dates">2001 – 2019 · 19 ans</span>
+          <h3>Directrice de projets RH numériques puis Directrice marketing</h3>
+          <div class="tl-org">ADP</div>
+          <p class="tl-desc">Parcours interne complet : direction marketing (10 offres de service, campagnes inbound), responsable marketing grands comptes et experts-comptables, chef de projets marketing PME/PMI et TPE.</p>
+        </div>
+        <div class="tl-item">
+          <span class="tl-dates">1998 – 2000</span>
+          <h3>Attachée commerciale</h3>
+          <div class="tl-org">Peugeot France</div>
+          <p class="tl-desc">Vente aux particuliers et professionnels, services de financement, développement commercial d'un établissement.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Accompagnement</span>
+        <h2>Du cadrage stratégique à l'action</h2>
+        <p>Quatre façons de travailler ensemble, selon l'endroit où vous en êtes.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <span class="service-num">01</span>
+          <h3>Stratégie marketing &amp; positionnement</h3>
+          <p>Études de marché, formalisation de la proposition de valeur, alignement stratégique.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-num">02</span>
+          <h3>Structuration &amp; marketing de l'offre</h3>
+          <p>Clarification du catalogue, création ou refonte des offres, accompagnement à la rédaction.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-num">03</span>
+          <h3>Transformation digitale</h3>
+          <p>Création ou refonte de site web, stratégie SEO, réseaux sociaux, contenu.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-num">04</span>
+          <h3>Mentorat &amp; formation</h3>
+          <p>Programmes LiveMentor, ateliers IA, LinkedIn, branding et marketing digital.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="why">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Pourquoi travailler ensemble</span>
+        <h2>Ce que vous obtenez, concrètement</h2>
+      </div>
+      <div class="why-list">
+        <div class="why-item">
+          <span class="why-check">✓</span>
+          <div>
+            <h3>Pragmatique et structuré</h3>
+            <p>Vous avancez étape par étape, avec une méthode claire et adaptée à vos enjeux de dirigeant.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <span class="why-check">✓</span>
+          <div>
+            <h3>Stratégie, coaching et mise en œuvre</h3>
+            <p>Je vous aide à décider, mais aussi à faire — on passe à l'action.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <span class="why-check">✓</span>
+          <div>
+            <h3>Des livrables concrets et durables</h3>
+            <p>Chaque mission aboutit à des outils opérationnels : messages clairs, offres formalisées, supports réutilisables.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="avis">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Avis Google</span>
+        <h2>Ce qu'en disent les personnes accompagnées</h2>
+      </div>
+      <div class="quotes">
+        <div class="quote-card">
+          <span class="quote-mark">"</span>
+          <p class="text">Patricia est extrêmement pédagogue, bienveillante et investie. Elle prend réellement le temps d'expliquer, d'accompagner et de rassurer.</p>
+          <span class="quote-author">Laura K.</span>
+        </div>
+        <div class="quote-card">
+          <span class="quote-mark">"</span>
+          <p class="text">Elle a su trouver les angles morts, nos forces non exploitées, et établir une stratégie efficace.</p>
+          <span class="quote-author">Amélie B.</span>
+        </div>
+        <div class="quote-card">
+          <span class="quote-mark">"</span>
+          <p class="text">Une personne humaine, compétente et très agréable. Un plaisir d'avoir réfléchi ensemble sur des projets concrets.</p>
+          <span class="quote-author">Nicolas</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact-panel">
+        <div>
+          <h2>On en parle ?</h2>
+          <p>45 minutes de découverte offertes, pour prendre du recul et repartir avec des conseils pratiques.</p>
+        </div>
+        <div class="contact-actions">
+          <a class="btn btn-primary" href="https://calendly.com/patriciaperche/echange" target="_blank" rel="noopener">Prendre rendez-vous →</a>
+          <a class="link-line" href="https://www.linkedin.com/in/patricia-perche/" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a class="link-line" href="https://www.instagram.com/patriciaperchemarketing/" target="_blank" rel="noopener">Instagram ↗</a>
+          <a class="link-line" href="https://patriciaperche.fr" target="_blank" rel="noopener">patriciaperche.fr ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">Patricia Perche — Consultante marketing B2B, Nanterre &amp; toute la France</div>
+</footer>
