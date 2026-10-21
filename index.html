@@ -580,14 +580,20 @@
   .recent-head { margin-top: 64px; }
   .recent {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 22px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
     margin-top: 28px;
     align-items: start;
   }
-  @media (max-width: 880px) { .recent { grid-template-columns: 1fr; } }
-  .recent .card-head { padding: 24px 28px; }
-  .recent .card-body { padding: 26px 28px 28px; }
+  @media (min-width: 981px) {
+    .recent { grid-template-rows: auto auto; }
+    .recent .card { display: grid; grid-row: span 2; grid-template-rows: subgrid; row-gap: 0; }
+    .recent .card-head { justify-content: flex-end; }
+  }
+  @media (max-width: 980px) { .recent { grid-template-columns: 1fr; max-width: 680px; } }
+  .recent .card-head { padding: 22px 24px; }
+  .recent .card-head h3 { font-size: 1.15rem; }
+  .recent .card-body { padding: 22px 24px 26px; }
   @media (max-width: 620px) {
     .recent .card-head { padding: 22px 22px; }
     .recent .card-body { padding: 24px 22px; }
@@ -995,6 +1001,28 @@
     </div>
 
     <div class="recent">
+      <article class="card" id="vaucresson">
+        <div class="card-head">
+          <span class="card-tag">Masterclass · Réseau Femmes qui bougent, Vaucresson</span>
+          <h3>Aligner son offre et sa stratégie</h3>
+        </div>
+        <div class="card-body">
+          <ul class="facts" aria-label="En bref">
+            <li>Présentiel</li>
+            <li>Offre &amp; positionnement</li>
+            <li>Workbook interactif</li>
+          </ul>
+          <p class="card-intro">Pour des entrepreneuses qui veulent relier ce qu'elles vendent à ce que leurs clientes achètent, et donner de bonnes raisons de les choisir.</p>
+          <span class="mini-label">Programme</span>
+          <ol class="steps">
+            <li><div><h4>Ikigai de l'entreprise</h4><p>Trouver le point de rencontre entre votre savoir-faire, vos envies et ce que votre marché est prêt à payer.</p></div></li>
+            <li><div><h4>Persona et carte d'empathie</h4><p>Cerner le contexte, le problème et le déclencheur d'achat de votre cliente idéale.</p></div></li>
+            <li><div><h4>Analyse concurrentielle ERAC</h4><p>Choisir ce que vous éliminez, réduisez, augmentez et créez face à vos concurrents.</p></div></li>
+            <li><div><h4>Promesse de transformation</h4><p>Formuler la situation de départ de vos clientes et le progrès que vous leur apportez.</p></div></li>
+          </ol>
+        </div>
+      </article>
+
       <article class="card" id="willa">
         <div class="card-head">
           <span class="card-tag">Webinaire · Willa &amp; LiveMentor</span>
@@ -1046,6 +1074,7 @@
       <span class="chip">ECITV</span>
       <span class="chip">Freeland Académie</span>
       <span class="chip">Ville de Vaucresson</span>
+      <span class="chip">Femmes qui bougent</span>
       <span class="chip">Club des Entrepreneuses d'Issy</span>
       <span class="chip">Agences &amp; écoles</span>
     </div>
@@ -1082,7 +1111,7 @@
       </div>
       <div class="ref-row">
         <h4>Mentorat &amp; formation</h4>
-        <p>LiveMentor (IA, marketing digital, LinkedIn)<span class="sep">·</span>ECITV<span class="sep">·</span>Freeland Académie<span class="sep">·</span>Willa<span class="sep">·</span>Club des Entrepreneuses d'Issy<span class="sep">·</span>Ville de Vaucresson<span class="sep">·</span>Kiween</p>
+        <p>LiveMentor (IA, marketing digital, LinkedIn)<span class="sep">·</span>ECITV<span class="sep">·</span>Freeland Académie<span class="sep">·</span>Willa<span class="sep">·</span>Club des Entrepreneuses d'Issy<span class="sep">·</span>Ville de Vaucresson<span class="sep">·</span>Femmes qui bougent<span class="sep">·</span>Kiween</p>
       </div>
     </div>
     <p class="refs-note">Liste non exhaustive : TPE, indépendants, professions libérales, startups, organismes publics.</p>
